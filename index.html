@@ -1,0 +1,815 @@
+<html class="scroll-smooth" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Inovação Digital para o Desenvolvimento Sustentável</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto+Slab&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+.custom-button {
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.custom-button:hover {
+  background-color: #e0f0ff;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.custom-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+      .bg-section {
+        background: linear-gradient(135deg, #001d5071, #001e50, #001e50);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(to right, #ff6b6b);
+        color: #f0f4f8;
+        overflow: hidden; /* Esconde scrollbar nativa */
+        overflow-x: hidden
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Roboto Slab", serif;
+      }
+      /* Scrollbar for modern browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #203a43;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4fd1c5;
+        border-radius: 4px;
+      }
+      
+      .scroll-container {
+        overflow-y: scroll;
+        height: 100vh;
+        width: 100vw;
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .scroll-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge */
+      }
+
+      .scroll-thumb {
+        position: fixed;
+        right: 10px;
+        top: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: url("./vwcobranco.png") no-repeat center center / cover;
+        cursor: grab;
+        z-index: 1000;
+      }
+
+      .scroll-thumb.dragging {
+        cursor: grabbing;
+      }
+
+
+
+      /* Fade in animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        animation-duration: 1s;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Slide from left */
+      .slide-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        animation-duration: 1s;
+      }
+      .slide-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      /* Slide from right */
+      .slide-right {
+        opacity: 0;
+        transform: translateX(40px);
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        animation-duration: 1s;
+      }
+      .slide-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      /* Zoom in */
+      .zoom-in {
+        opacity: 0;
+        transform: scale(0.85);
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        animation-duration: 1s;
+      }
+      .zoom-in.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      /* Floating animation for hero image */
+      @keyframes floating {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(5px, -5px);
+        }
+        50% {
+          transform: translate(0, -5px);
+        }
+        75% {
+          transform: translate(-5px, -5px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .hover\:floating:hover {
+        animation: floating 1000ms ease-in-out infinite;
+      }
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(90deg, #4fd1c5, #00ffcc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text; /* fallback para navegadores modernos */
+        color: transparent; /* para evitar que o texto apareça preto */
+      }
+
+      /* Button hover effect */
+      .btn-primary {
+        background: #4fd1c5;
+        color: #0f2027;
+        font-weight: 700;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .btn-primary:hover,
+      .btn-primary:focus {
+        background: #38b2ac;
+        color: #e6fffa;
+        outline: none;
+      }
+      /* Section separators */
+      .section-separator {
+        height: 4px;
+        width: 80px;
+        background: #4fd1c5;
+        border-radius: 9999px;
+        margin: 1rem auto 2rem auto;
+      }
+      /* Responsive typography */
+      @media (min-width: 640px) {
+        h1 {
+          font-size: 3.5rem;
+        }
+        h2 {
+          font-size: 2.25rem;
+        }
+        h3 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="relative">
+    
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 shadow-lg" style="background-image: linear-gradient(to right, #ffffff, #7389b3, #001E50, #001E50);"
+    >
+      <div
+        class="max-w-7xl mx-auto px-2 sm:px-6 flex items-center justify-between h-16"
+      >
+        
+          <img
+            src="https://www.ascb.org.br/wp-content/uploads/2018/06/logo-Faculdade-Unyleya-8.png"
+            alt="Logo da Faculdade Unyleya"
+            class="w-40 h-35 -ml-16"
+            loading="lazy"
+          />
+        </a>
+
+        <a
+        class="text-white font-extrabold text-xl tracking-wide hover:drop-shadow-[0_0_10px_white] transition"
+        >
+          Inovação Sustentável
+        </a>
+        <ul class="hidden md:flex space-x-8 text-white font-semibold">
+          <li>
+            <a class="hover:text-red-500 transition" href="#hero"> Início </a>
+          </li>
+          <li>
+            <a class="hover:text-red-500 transition" href="#transformacao">
+              Transformação Digital
+            </a>
+          </li>
+          <li>
+            <a class="hover:text-red-500 transition" href="#esg"> ESG </a>
+          </li>
+          <li>
+            <a class="hover:text-red-500 transition" href="#tecnologias">
+              Tecnologias
+            </a>
+          </li>
+          <li>
+            <a class="hover:text-red-500 transition" href="#uso">
+              Ação
+            </a>
+          </li>
+        </ul>
+        <button
+          aria-label="Abrir menu"
+          class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-teal-300"
+          id="menu-btn"
+        >
+          <i class="fas fa-bars fa-lg"> </i>
+        </button>
+      </div>
+      <div class="hidden md:hidden" style="background-color: #001e50;" id="mobile-menu">
+        <ul class="flex flex-col space-y-3 p-4 text-white font-semibold">
+          <li>
+            <a class="block hover:text-red-500 transition" href="hero#">
+              Início
+            </a>
+          </li>
+          <li>
+            <a
+              class="block hover:text-red-500 transition"
+              href="#transformacao"
+            >
+              Transformação Digital
+            </a>
+          </li>
+          <li>
+            <a class="block hover:text-red-500 transition" href="#esg">
+              ESG
+            </a>
+          </li>
+          <li>
+            <a class="block hover:text-red-500 transition" href="#tecnologias">
+              Tecnologias
+            </a>
+          </li>
+          <li>
+            <a class="block hover:text-red-500 transition" href="#uso">
+              Ação
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+
+    <div class="scroll-container" id="scrollContent">
+  <section
+  id="hero"
+  class="min-h-screen flex items-center py-20 px-6 sm:px-12 text-teal-100 bg-section mx-auto"
+>
+  <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+    <!-- Texto -->
+    <div class="md:w-1/2 text-center md:text-left fade-in">
+      <h1 class="text-3xl sm:text-4xl font-extrabold gradient-text leading-tight">
+        Inovação Digital: o Caminho para o Desenvolvimento Sustentável
+      </h1>
+      <p class="mt-4 text-lg sm:text-xl leading-relaxed">
+        A transformação digital tem desempenhado um papel decisivo na
+        construção de modelos de negócios mais sustentáveis. Ao integrar
+        tecnologias emergentes aos processos corporativos, é possível reduzir
+        impactos ambientais, aumentar a eficiência operacional e fortalecer
+        práticas sociais e de governança.
+      </p>
+      <p class="mt-4 text-lg sm:text-xl leading-relaxed">
+        Nesse contexto, a inovação não é apenas uma vantagem competitiva — é
+        um caminho essencial para o equilíbrio entre crescimento econômico e
+        responsabilidade socioambiental.
+      </p>
+      <a
+        href="#transformacao"
+        class="btn-primary mt-8 px-8 py-3 rounded-full shadow-lg inline-flex items-center gap-3 hover:scale-105 transform transition"
+      >
+        <i class="fas fa-arrow-down"></i>
+        Saiba Mais
+      </a>
+    </div>
+
+    <!-- Imagem -->
+    <div class="md:w-1/2 flex justify-center fade-in">
+      <img
+        src="./A simple representat.png"
+        alt="Conceito futurista de inovação digital e sustentabilidade"
+        class="w-full max-w-md rounded-xl shadow-2xl hover:floating rotate-3 transition-transform"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+    <!-- Transformação Digital Section -->
+    <section
+      class="py-20 px-6 sm:px-12 text-teal-100 bg-section mx-auto"
+      id="transformacao"
+    >
+      <div class="min-h-screen max-w-6xl mx-auto">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <!-- Título -->
+          
+          <!-- Botão com dropdown -->
+          <div class="relative inline-block">
+            <button id="toggleDropdown" class="bg-[#001e50] text-white px-6 py-2 rounded-md shadow hover:brightness-200 transition">
+              RIO PREMIUM
+            </button>
+            
+            <!-- Lista suspensa -->
+            <div id="dropdownContent"
+            class="hidden absolute left-0 mt-2 w-[300px] bg-[#001e50] text-white rounded-lg shadow-lg p-4 space-y-2 z-50">
+            <ul class="list-disc list-inside space-y-1 text-sm leading-snug">
+              <li>Diversos histogramas para análise do perfil de direção</li>
+              <li>Painel de infrações com detalhes do motorista ou veículo</li>
+                <li>Infrações aplicadas a um veículo ou à um grupo de veículos</li>
+                <li>Ranking de motoristas ou veículos por infração/dia ou /distância</li>
+                <li>Indicação de período de condução dentro da faixa econômica</li>
+                <li>Excesso de tempo com o veículo em marcha lenta</li>
+                <li>Frenagens e acelerações bruscas</li>
+                <li>Velocidade excedida em condições normais e em chuva</li>
+                <li>Classifica a frota com relação ao status de manutenção e código de falha</li>
+                <li>Códigos de falhas críticas e alertas de altas excessivas de temperaturas</li>
+                <li>Avisos de necessidade de manutenção</li>
+                <li>Indicação do veículo mais crítico</li>
+                <li>Telemetria de componentes</li>
+                <li>Monitoramento do nível de combustível e ARLA</li>
+                <li>Quantidade de paradas por veículo, frota e período</li>
+              </ul>
+            </div>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold gradient-text slide-left text-center sm:text-left">
+            O Que é a Transformação Digital?
+          </h2>
+        </div>
+        
+        <script>
+          const toggleBtn = document.getElementById('toggleDropdown');
+          const dropdown = document.getElementById('dropdownContent');
+        
+          // Toggle no botão
+          toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Impede que o clique propague para o documento
+            dropdown.classList.toggle('hidden');
+          });
+        
+          // Impede o fechamento ao clicar dentro da lista
+          dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+          });
+        
+          // Fecha ao clicar fora
+          document.addEventListener('click', () => {
+            dropdown.classList.add('hidden');
+          });
+
+          
+        </script>
+        
+        <div class="section-separator"></div>
+        <div class="flex flex-col md:flex-row md:items-center md:gap-12 mt-8">
+          <div class="md:w-1/2 slide-right">
+            <p
+              class="text-lg sm:text-xl leading-relaxed bg-white bg-opacity-20 rounded-lg p-6 shadow-lg"
+            >
+            A digitalização reconfigura a forma como as organizações operam, oferecendo maior controle sobre recursos, rastreabilidade e tomada de decisão orientada por dados.
+            Essa evolução tecnológica viabiliza soluções que aliam desempenho e sustentabilidade.
+            
+            </p>
+                  
+            <p
+              class="mt-6 text-lg sm:text-xl leading-relaxed bg-white bg-opacity-20 rounded-lg p-6 shadow-lg"
+            >
+            <b>RIO Box</b>
+            <br>Sistema inteligente de gestão de frotas, coleta dados em tempo real para otimizar rotas, consumo e manutenção. 
+            <BR>Com isso:
+            <BR>Reduz em até 10% o uso de combustível — diminuindo as emissões de CO₂;
+            <BR>Aumenta a produtividade logística e a segurança no transporte;
+            <BR>Gera economia direta nos custos operacionais.
+          </p>
+          </div>
+          <div
+            class="md:w-1/2 mt-10 md:mt-0 flex flex-col items-center gap-4 slide-left"
+          >
+            <img
+              alt="Transformação digital em uso"
+              class="rounded-xl w-full max-w-md shadow-2x1 hover:floating rotate-3 transition-transform"
+              height="300"
+              src="https://traton.com/.imaging/mte/tab-theme/standardLandscape-XL/dam/02_Newsroom/02_Pressemitteilungen/Pressemitteilungen/Pressemitteilungen-2018-2021/bild-1jpg/jcr:content/traton_pressemitteilung_021019_Rio_01.jpg"
+              loading="lazy"
+              width="400"
+              />
+              <img
+              alt="Transformação digital em uso"
+              class="rounded-xl w-full max-w-md shadow-2x1 hover:floating rotate-3 transition-transform"
+              height="300"
+              loading="lazy"
+              src="/RioCelular.png"
+              width="400"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ESG Section -->
+    <section class="py-20 px-6 sm:px-12 text-teal-100 bg-section" id="esg">
+      <div class="min-h-screen max-w-screen-xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center gradient-text mb-2 slide-left"
+        >
+          O Que Significa ESG?
+        </h2>
+        <div class="section-separator"></div>
+    
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10">
+          <!-- Ambiental -->
+          <article
+            class="bg-white bg-opacity-30 rounded-xl p-8 shadow-lg slide-right hover:scale-105 transform transition h-full flex flex-col"
+          >
+            <div class="flex flex-col items-center mb-4 space-y-2">
+              <i class="fas fa-leaf fa-3x text-teal-200"></i>
+              <h3 class="text-xl font-semibold text-teal-100 text-center">
+                Ambiental (Environmental)
+              </h3>
+            </div>
+            <p class="text-left text-base font-medium mb-4 leading-relaxed text-teal-100">
+              Diz respeito às práticas adotadas pelas empresas para reduzir seu impacto no meio ambiente.
+              Isso inclui o uso eficiente de recursos naturais, controle de emissões e adoção de energias limpas.
+            </p>
+            <ul class="list-disc list-inside text-left leading-relaxed text-teal-100">
+              <li><strong>Energia Renovável:</strong> Utilização de fontes limpas e produção de veículos elétricos.</li>
+              <li><strong>Redução de emissões:</strong> Menor consumo de energia e migração para sistemas em nuvem.</li>
+              <li><strong>Eficiência operacional:</strong> Fábricas que economizam água, gás e eletricidade.</li>
+            </ul>
+          </article>
+    
+          <!-- Social -->
+          <article
+            class="bg-white bg-opacity-30 rounded-xl p-8 shadow-lg slide-left hover:scale-105 transform transition h-full flex flex-col"
+          >
+            <div class="flex flex-col items-center mb-4 space-y-2">
+              <i class="fas fa-users fa-3x text-teal-200"></i>
+              <h3 class="text-xl font-semibold text-teal-100 text-center">
+                Social (S)
+              </h3>
+            </div>
+            <p class="text-left text-base font-medium mb-4 leading-relaxed text-teal-100">
+              Envolve o cuidado com pessoas, funcionários, comunidades e consumidores.
+              Trata de diversidade, inclusão, segurança, educação e desenvolvimento social.
+            </p>
+            <ul class="list-disc list-inside text-left leading-relaxed text-teal-100">
+              <li><strong>Educação e inclusão:</strong> Programas de capacitação para jovens de baixa renda.</li>
+              <li><strong>Diversidade:</strong> Metas para maior presença de mulheres em cargos de liderança.</li>
+              <li><strong>Investimentos sociais:</strong> Ações que beneficiam milhares de pessoas diretamente.</li>
+            </ul>
+          </article>
+    
+          <!-- Governança -->
+          <article
+            class="bg-white bg-opacity-30 rounded-xl p-8 shadow-lg slide-right hover:scale-105 transform transition h-full flex flex-col"
+          >
+            <div class="flex flex-col items-center mb-4 space-y-2">
+              <i class="fas fa-balance-scale fa-3x text-teal-200"></i>
+              <h3 class="text-xl font-semibold text-teal-100 text-center">
+                Governança (Governance)
+              </h3>
+            </div>
+            <p class="text-left text-base font-medium mb-4 leading-relaxed text-teal-100">
+              Refere-se à forma como uma empresa é gerida, garantindo ética, transparência, responsabilidade e controle sobre suas ações e decisões.
+            </p>
+            <ul class="list-disc list-inside text-left leading-relaxed text-teal-100">
+              <li><strong>Transparência:</strong> Relatórios acessíveis e prestação de contas sobre ações e impactos.</li>
+              <li><strong>Ética:</strong> Políticas anticorrupção, código de conduta e canais de denúncia.</li>
+              <li><strong>Gestão de riscos:</strong> Conselhos administrativos diversos e independentes.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tecnologias Section -->
+    <!-- Coloque isso antes de fechar o body (no final da página): scripts e estilos do modal -->
+    <script>
+      function openModal(id) {
+        document.getElementById(id).classList.remove("hidden");
+      }
+    
+      function closeModal(id) {
+        document.getElementById(id).classList.add("hidden");
+      }
+    
+      // Fecha o modal ao clicar fora do conteúdo
+      document.addEventListener("click", function (e) {
+        const modals = document.querySelectorAll(".modal-bg");
+        modals.forEach((modal) => {
+          if (!modal.classList.contains("hidden")) {
+            const content = modal.querySelector(".modal-content");
+            if (!content.contains(e.target)) {
+              closeModal(modal.id);
+            }
+          }
+        });
+      });
+    </script>
+
+<style>
+  .modal-bg {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+</style>
+
+<!-- SECTION COM TECNOLOGIAS -->
+<section class="py-20 px-6 sm:px-12 text-teal-100 bg-section" id="tecnologias">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center gradient-text mb-2 slide-left">
+      Ferramentas Digitais que Estão Construindo um Futuro Sustentável
+    </h2>
+    <div class="section-separator"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+      <!-- Cada artigo representa uma tecnologia -->
+      <article onclick="openModal('modal-ia')" class="cursor-pointer bg-white bg-opacity-30 rounded-xl p-8 shadow-lg hover:scale-105 transform transition slide-right">
+        <h3 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <i class="fas fa-robot text-teal-200"></i> Inteligência Artificial (IA)
+        </h3>
+        <p>Contribui para o pilar ambiental ao otimizar processos, reduzir desperdícios e antecipar falhas.</p>
+      </article>
+
+      <article onclick="openModal('modal-iot')" class="cursor-pointer bg-white bg-opacity-30 rounded-xl p-8 shadow-lg hover:scale-105 transform transition slide-left">
+        <h3 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <i class="fas fa-network-wired text-teal-200"></i> Internet das Coisas (IoT)
+        </h3>
+        <p>Monitora dispositivos conectados e melhora a transparência e rastreabilidade de processos.</p>
+      </article>
+
+      <article onclick="openModal('modal-blockchain')" class="cursor-pointer bg-white bg-opacity-30 rounded-xl p-8 shadow-lg hover:scale-105 transform transition slide-right">
+        <h3 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <i class="fas fa-lock text-teal-200"></i> Blockchain
+        </h3>
+        <p>Garante segurança, descentralização e imutabilidade de dados em operações digitais.</p>
+      </article>
+
+      <article onclick="openModal('modal-bigdata')" class="cursor-pointer bg-white bg-opacity-30 rounded-xl p-8 shadow-lg hover:scale-105 transform transition slide-left">
+        <h3 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <i class="fas fa-database text-teal-200"></i> Big Data
+        </h3>
+        <p>Transforma grandes volumes de dados em decisões mais assertivas e sustentáveis.</p>
+      </article>
+
+      <article onclick="openModal('modal-cloud')" class="cursor-pointer bg-white bg-opacity-30 rounded-xl p-8 shadow-lg hover:scale-105 transform transition slide-right md:col-span-2">
+        <h3 class="text-2xl font-semibold mb-4 flex items-center gap-3">
+          <i class="fas fa-cloud text-teal-200"></i> Computação em Nuvem
+        </h3>
+        <p>Reduz custos, emissões e facilita a gestão de dados com segurança e agilidade.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MODAIS EXPLICATIVOS -->
+<!-- IA -->
+<div id="modal-ia" class="fixed inset-0 z-50 hidden modal-bg flex items-center justify-center">
+
+  <div class="bg-white rounded-xl p-6 max-w-md w-full text-gray-800 relative">
+    <button onclick="closeModal('modal-ia')" class="absolute top-2 right-4 text-gray-600 text-xl">&times;</button>
+    <h3 class="text-2xl font-bold mb-3">O que é Inteligência Artificial?</h3>
+    <p>A Inteligência Artificial (IA) permite que máquinas simulem a inteligência humana. Ela aprende com dados, reconhece padrões e toma decisões. É usada em sistemas preditivos, reconhecimento de imagem, automação e muito mais.</p>
+  </div>
+</div>
+
+<!-- IoT -->
+<div id="modal-iot" class="fixed inset-0 z-50 hidden modal-bg flex items-center justify-center">
+  <div class="bg-white rounded-xl p-6 max-w-md w-full text-gray-800 relative">
+    <button onclick="closeModal('modal-iot')" class="absolute top-2 right-4 text-gray-600 text-xl">&times;</button>
+    <h3 class="text-2xl font-bold mb-3">O que é Internet das Coisas?</h3>
+    <p>IoT é a conexão entre objetos físicos e a internet. Dispositivos coletam e trocam dados em tempo real, como sensores de temperatura, carros conectados, ou eletrodomésticos inteligentes.</p>
+  </div>
+</div>
+
+<!-- Blockchain -->
+<div id="modal-blockchain" class="fixed inset-0 z-50 hidden modal-bg flex items-center justify-center">
+  <div class="bg-white rounded-xl p-6 max-w-md w-full text-gray-800 relative">
+    <button onclick="closeModal('modal-blockchain')" class="absolute top-2 right-4 text-gray-600 text-xl">&times;</button>
+    <h3 class="text-2xl font-bold mb-3">O que é Blockchain?</h3>
+    <p>É uma tecnologia de registro distribuído onde cada transação é armazenada em blocos conectados. Esses dados são públicos, seguros e não podem ser alterados, o que aumenta a confiança e a transparência.</p>
+  </div>
+</div>
+
+<!-- Big Data -->
+<div id="modal-bigdata" class="fixed inset-0 z-50 hidden modal-bg flex items-center justify-center">
+  <div class="bg-white rounded-xl p-6 max-w-md w-full text-gray-800 relative">
+    <button onclick="closeModal('modal-bigdata')" class="absolute top-2 right-4 text-gray-600 text-xl">&times;</button>
+    <h3 class="text-2xl font-bold mb-3">O que é Big Data?</h3>
+    <p>Big Data é o processamento de grandes volumes de dados, estruturados ou não. Com ele, empresas identificam padrões, tendências e tomam decisões mais inteligentes e personalizadas.</p>
+  </div>
+</div>
+
+<!-- Computação em Nuvem -->
+<div id="modal-cloud" class="fixed inset-0 z-50 hidden modal-bg flex items-center justify-center">
+  <div class="bg-white rounded-xl p-6 max-w-md w-full text-gray-800 relative">
+    <button onclick="closeModal('modal-cloud')" class="absolute top-2 right-4 text-gray-600 text-xl">&times;</button>
+    <h3 class="text-2xl font-bold mb-3">O que é Computação em Nuvem?</h3>
+    <p>É a entrega de serviços como armazenamento e processamento pela internet. Elimina a necessidade de servidores físicos e permite acesso remoto seguro a dados e sistemas.</p>
+  </div>
+</div>
+
+    <!-- Uso para o Bem Section -->
+    <section class="pt-20 pb-8 px-6 sm:px-12 text-teal-100 bg-section" id="uso">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center gradient-text mb-2 slide-left"
+        >
+          É Possível Usar Essas Tecnologias para o Bem?
+        </h2>
+        <div class="section-separator"></div>
+        <div class="md:gap-12 mt-10 items-center">
+          <div class="md:w-1/2 mx-auto slide-right">
+            <p
+              class="text-1xl sm:text-lg bg-white bg-opacity-40 rounded-lg px-2 shadow-lg text-center"
+            >
+              A união entre inovação digital e estratégias ESG não apenas potencializa o desempenho corporativo,
+              mas redefine o papel das empresas na sociedade.
+              <br>A experiência da Volkswagen do Brasil mostra que
+              é possível aliar tecnologia, propósito e impacto positivo, servindo de inspiração para outras
+              organizações que buscam protagonizar a transição para um futuro mais sustentável.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+      <footer class="text-teal-200 text-center py-5 px-0">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-20">
+      
+          <!-- Botão Finalizar -->
+          <a href="obrigado.html" style="text-decoration: none;">
+            <button class="custom-button" type="button" title="Finalizar">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="inline w-5 h-5 mr-2">
+                <path fill="none" stroke="currentColor" stroke-width="2" d="M4 22V2l14 6-14 6" />
+              </svg>
+              Finalizar
+            </button>
+          </a>
+      
+          <!-- Botão Referências -->
+          <a href="./referencias.html" style="text-decoration: none;">
+            <button class="custom-button" type="button" title="Ver Referências">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="inline w-5 h-5 mr-2">
+                <path fill="none" stroke="currentColor" stroke-width="2" d="M4 4h16v16H4z M8 8h8v2H8z M8 12h8v2H8z" />
+              </svg>
+              Referências
+            </button>
+          </a>
+      
+          <!-- Texto do rodapé -->
+          <p class="text-sm sm:text-base text-center sm:text-left">
+            © 2025 Faculdade Unyleya APEX IV. Inovação Digital para o Desenvolvimento Sustentável.
+            Todos os direitos reservados.
+          </p>
+      
+        </div>
+      </footer>
+      
+    </section>
+    
+  </div>
+
+
+  <div class="scroll-thumb drop-shadow-[0_0_15px_white]" id="scrollThumb"></div>
+    <!-- Footer -->
+    </div>
+    
+    <script>
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        menuBtn.querySelector("i").classList.toggle("fa-bars");
+        menuBtn.querySelector("i").classList.toggle("fa-times");
+      });
+
+      // Intersection Observer for animations
+      const faders = document.querySelectorAll(
+        ".fade-in, .slide-left, .slide-right, .zoom-in"
+      );
+      const options = {
+        threshold: 0.2,
+      };
+
+      const appearOnScroll = new IntersectionObserver(function (
+        entries,
+        appearOnScroll
+      ) {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            entry.target.classList.add("visible");
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      },
+      options);
+
+      faders.forEach((fader) => {
+        appearOnScroll.observe(fader);
+      });
+
+      const scrollContainer = document.getElementById("scrollContent");
+      const thumb = document.getElementById("scrollThumb");
+
+      const updateThumbPosition = () => {
+        const scrollRatio =
+          scrollContainer.scrollTop /
+          (scrollContainer.scrollHeight - scrollContainer.clientHeight);
+        const maxThumbTop = window.innerHeight - thumb.offsetHeight;
+        thumb.style.top = `${scrollRatio * maxThumbTop}px`;
+      };
+
+      scrollContainer.addEventListener("scroll", updateThumbPosition);
+
+      let isDragging = false;
+      let startY = 0;
+
+      thumb.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startY = e.clientY;
+        thumb.classList.add("dragging");
+        e.preventDefault();
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+        thumb.classList.remove("dragging");
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+
+        const deltaY = e.clientY - startY;
+        startY = e.clientY;
+
+        const maxScrollTop =
+          scrollContainer.scrollHeight - scrollContainer.clientHeight;
+        const maxThumbTop = window.innerHeight - thumb.offsetHeight;
+
+        let newTop = parseFloat(thumb.style.top || "0") + deltaY;
+        newTop = Math.max(0, Math.min(maxThumbTop, newTop));
+
+        thumb.style.top = `${newTop}px`;
+
+        const scrollRatio = newTop / maxThumbTop;
+        scrollContainer.scrollTop = scrollRatio * maxScrollTop;
+      });
+
+      // Inicializa
+      updateThumbPosition();
+    </script>
+  </body>
+</html>
